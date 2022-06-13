@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    /* background-color: lightblue; */
+    border-radius: 15px;
+    padding: 15px;
+    border: red 3px solid;
+} 
+
+#question-box {
+    font-size: 25px;
+    margin: 5px 5px 10px 5px;
+    border: 3px red solid;
+    width: 750px;
+}
+
+#answer-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* flex-direction: column; */
+    border: red 3px solid;
+}
+
+/* answer buttons */
+#a-btn,
+#b-btn,
+#c-btn,
+#d-btn {
+    width: 250px;
+    background-color: lightblue;
+    border-radius: 10px;
+    border: red 3px solid;
+    padding: 5px;
+    margin: 5px;
+    font-size: 25px;
+
+}
+
+.start-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: red 3px solid;
+}
+
+#start-btn {
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgb(38, 38, 255);
+    color: white;
+    padding: 5px;
+    margin-top: 15px;
+    font-size: 20px;
+    border: red 3px solid;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    color: black;
+    padding: 5px;
+    margin-top: 15px;
+    font-size: 20px;
+    border: red 3px solid;
+}
+
+/* .container 
+
+#question-box,
+#answer-box,
+#start-btn */
