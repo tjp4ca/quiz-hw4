@@ -44,22 +44,32 @@
 // }
 // questions();
 
+var i = 0
+var score = 0
+var newInterval
+
+var buttonA = document.getElementById("a-btn");
+var buttonB = document.getElementById("b-btn");
+var buttonC = document.getElementById("c-btn");
+var buttonD = document.getElementById("d-btn");
+
+
 var quizQuestions = [
     question1 = {
-        question: "question1?",
-        answers: ["a1", "b1", "c1", "d1"]
+        question: "Question 2: Who is you TA?",
+        answers: ["Sebastian", "Gabe", "David", "John"]
     },
     question2 = {
-        question: "question2?",
-        answers: ["a2", "b2", "c2", "d2"]
+        question: "Question 3: Which of the following is NOT a primitive data type?",
+        answers: ["box", "string", "integer", "boolean"]
     },
     question3 = {
-        question: "question3?",
-        answers: ["a3", "b3", "c3", "d3"]
+        question: "Question 4: Which of the following is NOT a coding language?",
+        answers: ["GitHub", "Javascript", "C++", "Python"]
     },
     question4 = {
-        question: "question4?",
-        answers: ["a4", "b4", "c4", "d4"]
+        question: "Question 5: Do you like to code?",
+        answers: ["Yes", "No", "Maybe", "Never"]
     },
 ];
 
@@ -70,42 +80,63 @@ var quizQuestions = [
 // questionId.textContent = quizQuestions.question
 
 
-for (i = 0; i < quizQuestions.length; i++) {
-// //     // if true statements for correct answers
-// //     // if(questions[i] = true or correct answer) {
 
-// //     // }
+// for (i = 0; i < quizQuestions.length; i++) {
+// document.getElementById("question-box").textContent = quizQuestions[i].question;
 
-document.getElementById("question-box").textContent = quizQuestions[i].question;
 
-document.getElementById("a-btn").textContent = quizQuestions[i].answers[0];
-document.getElementById("b-btn").textContent = quizQuestions[i].answers[1];
-document.getElementById("c-btn").textContent = quizQuestions[i].answers[2];
-document.getElementById("d-btn").textContent = quizQuestions[i].answers[3];
+// console.log(quizQuestions[i]);
 
-console.log(quizQuestions[i]);
-setTimeout(5000);
+// setInterval(function() {
+//     document.getElementById("a-btn").textContent = quizQuestions[i].answers[0];
+//     document.getElementById("b-btn").textContent = quizQuestions[i].answers[1];
+//     document.getElementById("c-btn").textContent = quizQuestions[i].answers[2];
+//     document.getElementById("d-btn").textContent = quizQuestions[i].answers[3];
+// }, 5000);
+// }
 
-// //     // console.log(questions[i]);
-// //     // console.log(questions[i].question);
-// //     // console.log(questions[i].answers);
 
-// //     // questions[i].question();
-// //     // questions[i].answer();
-// console.log(quizQuestions);
+
+// document.getElementById("question-box").textContent = quizQuestions[i].question;
+
+// newInterval = setInterval(function() {
+//     document.getElementById("a-btn").textContent = quizQuestions[i].answers[0];
+//     document.getElementById("b-btn").textContent = quizQuestions[i].answers[1];
+//     document.getElementById("c-btn").textContent = quizQuestions[i].answers[2];
+//     document.getElementById("d-btn").textContent = quizQuestions[i].answers[3];
+// }, 5000);
+
+// clearInterval(newInterval);
+
+// console.log(newInterval);
+
+
+
+
+function answerClicked() {
+    document.getElementById("question-box").textContent = quizQuestions[i].question;
+    buttonA.textContent = quizQuestions[i].answers[0];
+    buttonB.textContent = quizQuestions[i].answers[1];
+    buttonC.textContent = quizQuestions[i].answers[2];
+    buttonD.textContent = quizQuestions[i].answers[3];
+
+    i++;
+    // console.log(i);
+    console.log("button clicked");
 }
 
-var i = 0
-var score = 0
-document.getElementById("question-box").textContent = quizQuestions[i].question;
+if (buttonA.addEventListener("click",answerClicked)){
+    score++;
+} else if (buttonB.addEventListener("click",answerClicked)) {
+    timer-= 10;
+    buttonD.addEventListener("click",answerClicked)
+} else if (buttonC.addEventListener("click",answerClicked)) {
+    timer-= 10;
+} else if (buttonD.addEventListener("click",answerClicked)) {
+    timer-= 10;
+}
 
 
-
-// var score = 0; score++ if correct
-
-
-// when clicked timer--
-// if wrong -5sec
 
 
 // start button clicked
@@ -134,12 +165,10 @@ function timeRemaining() {
     timer--;
     console.log(timer);
 
-    if (timer <= 70) {
+    if (timer <= 0) {
         clearInterval(interval);
     }
     
-    
-
     // countdownEl.textContent--;
     // console.log(countdownEl);
 
