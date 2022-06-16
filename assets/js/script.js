@@ -45,16 +45,17 @@
 // questions();
 
 var i = 0
-var score = 0
 var newInterval
 
+var newScore = document.getElementById("quiz-score");
+newScore.textContent = 0
 
 var buttonA = document.getElementById("a-btn");
 var buttonB = document.getElementById("b-btn");
 var buttonC = document.getElementById("c-btn");
 var buttonD = document.getElementById("d-btn");
 
-var newScore = document.getElementById("quiz-score");
+
 
 var quizQuestions = [
     question1 = {
@@ -73,8 +74,11 @@ var quizQuestions = [
         question: "Question 5: Do you like to code?",
         answers: ["Yes", "No", "Maybe", "Never"]
     },
+    question5 = {
+        question: "",
+        answers: ["A", "B", "C", "D"]
+    }
 ];
-
 
 
 // start button clicked
@@ -105,6 +109,7 @@ function a() {
     buttonC.textContent = quizQuestions[i].answers[2];
     buttonD.textContent = quizQuestions[i].answers[3];
     i++;
+    newScore.textContent++;
 }
 
 function b() {
@@ -160,7 +165,7 @@ function timeRemaining() {
     timer--;
     console.log(timer);
 
-    if (timer <= -1) {
+    if (timer <= -1 || i>4) {
         clearInterval(interval);
 
         // document.querySelector(".container").style.display = "none";
