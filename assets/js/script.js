@@ -48,11 +48,13 @@ var i = 0
 var score = 0
 var newInterval
 
+
 var buttonA = document.getElementById("a-btn");
 var buttonB = document.getElementById("b-btn");
 var buttonC = document.getElementById("c-btn");
 var buttonD = document.getElementById("d-btn");
 
+var newScore = document.getElementById("quiz-score");
 
 var quizQuestions = [
     question1 = {
@@ -72,6 +74,109 @@ var quizQuestions = [
         answers: ["Yes", "No", "Maybe", "Never"]
     },
 ];
+
+
+
+// start button clicked
+var startButton = document.getElementById("start-btn");
+startButton.addEventListener("click", startGame)
+
+// start countdown
+var countdownEl = document.getElementById("timer");
+// timer.textContent = parseInt(75);
+countdownEl.textContent = parseInt(75);
+// var countdownElString = JSON.stringify(countdownEl);
+//console.log(typeof timer);
+
+var timer = 75
+var interval;
+
+function startGame() {
+    console.log("start clicked");
+
+    // starts timeRemaining function
+    interval = setInterval(timeRemaining, 1000);
+
+// after answering go to next question
+function a() {
+    document.getElementById("question-box").textContent = quizQuestions[i].question;
+    buttonA.textContent = quizQuestions[i].answers[0];
+    buttonB.textContent = quizQuestions[i].answers[1];
+    buttonC.textContent = quizQuestions[i].answers[2];
+    buttonD.textContent = quizQuestions[i].answers[3];
+    i++;
+}
+
+function b() {
+    document.getElementById("question-box").textContent = quizQuestions[i].question;
+    buttonA.textContent = quizQuestions[i].answers[0];
+    buttonB.textContent = quizQuestions[i].answers[1];
+    buttonC.textContent = quizQuestions[i].answers[2];
+    buttonD.textContent = quizQuestions[i].answers[3];
+    timer -= 15;
+    i++;
+    console.log("button clicked");
+}
+
+function c() {
+    document.getElementById("question-box").textContent = quizQuestions[i].question;
+    buttonA.textContent = quizQuestions[i].answers[0];
+    buttonB.textContent = quizQuestions[i].answers[1];
+    buttonC.textContent = quizQuestions[i].answers[2];
+    buttonD.textContent = quizQuestions[i].answers[3];
+    timer -= 15;
+    i++;
+    console.log("button clicked");
+}
+
+function d() {
+    document.getElementById("question-box").textContent = quizQuestions[i].question;
+    buttonA.textContent = quizQuestions[i].answers[0];
+    buttonB.textContent = quizQuestions[i].answers[1];
+    buttonC.textContent = quizQuestions[i].answers[2];
+    buttonD.textContent = quizQuestions[i].answers[3];
+    timer -= 15;
+    i++;
+    console.log("button clicked");
+}
+
+// when answer button is clicked
+if (buttonA.addEventListener("click",a)){
+    score++;
+    console.log(score);
+} else if (buttonB.addEventListener("click",b)) {
+    // timer -= 10;
+} else if (buttonC.addEventListener("click",c)) {
+    // timer -= 10;
+} else if (buttonD.addEventListener("click",d)) {
+    // timer -= 10;
+}
+
+
+}
+
+function timeRemaining() {
+    countdownEl.textContent = timer;
+    timer--;
+    console.log(timer);
+
+    if (timer <= -1) {
+        clearInterval(interval);
+
+        // document.querySelector(".container").style.display = "none";
+        prompt("enter intials");
+    }
+    
+    // countdownEl.textContent--;
+    // console.log(countdownEl);
+
+    // if (countdownEl <= 70) {
+    //     clearInterval();
+    // }
+    // return;
+}
+
+
 
 // console.log(quizQuestions);
 // console.log(quizQuestions.question1);
@@ -112,69 +217,14 @@ var quizQuestions = [
 
 
 
-
-function answerClicked() {
-    document.getElementById("question-box").textContent = quizQuestions[i].question;
-    buttonA.textContent = quizQuestions[i].answers[0];
-    buttonB.textContent = quizQuestions[i].answers[1];
-    buttonC.textContent = quizQuestions[i].answers[2];
-    buttonD.textContent = quizQuestions[i].answers[3];
-
-    i++;
-    // console.log(i);
-    console.log("button clicked");
-}
-
-if (buttonA.addEventListener("click",answerClicked)){
-    score++;
-} else if (buttonB.addEventListener("click",answerClicked)) {
-    timer-= 10;
-    buttonD.addEventListener("click",answerClicked)
-} else if (buttonC.addEventListener("click",answerClicked)) {
-    timer-= 10;
-} else if (buttonD.addEventListener("click",answerClicked)) {
-    timer-= 10;
-}
+// function rightAnswerClicked() {
+//     i++;
+  
+//     console.log("button clicked");
+// }
 
 
 
 
-// start button clicked
-var startButton = document.getElementById("start-btn");
-startButton.addEventListener("click", startGame)
 
-// start countdown
-var countdownEl = document.getElementById("timer");
-// timer.textContent = parseInt(75);
-countdownEl.textContent = parseInt(75);
-// var countdownElString = JSON.stringify(countdownEl);
-//console.log(typeof timer);
-
-var timer = 75
-var interval;
-
-function startGame() {
-    console.log("start clicked");
-
-    // starts timeRemaining function
-    interval = setInterval(timeRemaining, 1000);
-}
-
-function timeRemaining() {
-    countdownEl.textContent = timer;
-    timer--;
-    console.log(timer);
-
-    if (timer <= 0) {
-        clearInterval(interval);
-    }
-    
-    // countdownEl.textContent--;
-    // console.log(countdownEl);
-
-    // if (countdownEl <= 70) {
-    //     clearInterval();
-    // }
-    // return;
-}
 
